@@ -2,6 +2,8 @@ import React from 'react'
 import styles from "./navbar.module.css"
 import Image from 'next/image'
 import Link from 'next/link'
+import { ThemeToggle } from '../themeToggle/ThemeToggle'
+import { AuthLinks } from '../authLinks/AuthLinks'
 
 export const Navbar = () => {
   return (
@@ -14,9 +16,11 @@ export const Navbar = () => {
       </div>
       <div className={styles.logo}>Anthea Blog</div>
       <div className={styles.links}>
-        <Link href="/">Homepage</Link>
-        <Link href="/">Contact</Link>
-        <Link href="/">About</Link>
+        <ThemeToggle/>
+        <Link href="/" className={styles.link}>Homepage</Link>
+        <Link href="/" className={styles.link}>Contact</Link>
+        <Link href="/" className={styles.link}>About</Link>
+        <AuthLinks/>
       </div>
     </div>
   )
