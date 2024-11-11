@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
-import styles from "./home.module.css"
+import styles from "./homepage.module.css"
 import { Featured } from "./components/featured/Featured";
 import { CategoryList } from "./components/categoryList/CategoryList";
 import { CardList } from "./components/cardList/CardList";
