@@ -16,7 +16,7 @@
 body{
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "Inter", serif;
+  font-family: "Helvetica", Arial, sans-serif;
 
 }
 
@@ -81,3 +81,12 @@ a{
     max-width: 475px;
   }
 }
+
+.ql-container{
+  font-size: 28px !important;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before{
+  color: #b3b3b1;
+}
+
