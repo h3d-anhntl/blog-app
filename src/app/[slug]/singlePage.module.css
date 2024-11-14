@@ -87,3 +87,12 @@
         display: none;
     }
 }
+
+@media screen and (max-width:640px) {
+    .title{
+        font-size: 36px;
+    }
+    .description{
+        font-size: 18px;
+    }
+}
