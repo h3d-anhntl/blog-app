@@ -23,9 +23,8 @@ export const Comments = ({postSlug}) => {
     const {data, mutate, isLoading} = useSWR(`http://localhost:3000/api/comments?postSlug=${postSlug}`, fetcher);
     const [desc, setDesc] = useState("");
 
-
     const handleSubmit = async () =>{
-        console.log("---------------"+postSlug);
+        
         await fetch("/api/comments", {
             method:"POST",
             body: JSON.stringify({desc,postSlug})
