@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const Card = ({key, item}) => {
-  console.log(item);
   return (
     <div className={styles.container} key={key}>
         <div className={styles.imageContainer}>
