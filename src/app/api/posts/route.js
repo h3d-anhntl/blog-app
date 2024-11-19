@@ -30,7 +30,7 @@ export const GET = async(req) => {
 }
 
 export const POST = async (req) => {
-    const {session} = await getAuthSession();
+    const session = await getAuthSession();
 
     if(!session){
         return new NextResponse(
@@ -40,7 +40,6 @@ export const POST = async (req) => {
 
     try{
         const body = await req.json();
-        console.log(req);
         const post = await prisma.post.create({
             data: {...body, userEmail: session.user.email}
         });
