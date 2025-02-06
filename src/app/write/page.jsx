@@ -18,6 +18,9 @@ const WritePage = () => {
     const [title, setTitle] = useState("");
     const [catSlug, setCatSlug] = useState("");
 
+    const [media, setMedia] = useState("");
+    const [uploading, setUploading] = useState(false);
+
     useEffect(() => {  
         if(status === "unauthenticated"){
           router.push("/")
@@ -38,6 +41,37 @@ const WritePage = () => {
           .replace(/^-+|-+$/g, "");
 
     const hanldePublish = async () =>{
+    // const hanldePublish = async (event) =>{
+    //     event.preventDefault();
+
+    //     if (!file) {
+    //     setError('Please select a file');
+    //     return;
+    //     }
+
+    //     const formData = new FormData();
+    // formData.append('file', file);
+
+    // try {
+    //   const res = await fetch('/api/upload', {
+    //     method: 'POST',
+    //     body: formData,
+    //   });
+
+    //   const data = await res.json();
+
+    //   if (res.ok) {
+    //     setMessage('File uploaded successfully');
+    //   } else {
+    //     console.log(data.message || 'Upload failed');
+    //     // setError(data.message || 'Upload failed');
+    //   }
+    // } catch (error) {
+    //     console.log(error || 'Upload failed');
+    // //   setError('Error uploading file');
+    // } finally {
+    //     setUploading(false);
+    // }
         
         const res = await fetch("/api/posts", {
             method:"POST",
@@ -55,6 +89,11 @@ const WritePage = () => {
             router.push(`/posts/${data.slug}`)
         }
     }
+
+    const handleFileChange = (event) => {
+        setFile(event.target.files[0]);
+      };
+
     
   return (
     <div className={styles.container}>
@@ -73,7 +112,7 @@ const WritePage = () => {
             </button>
             {open && (
                 <div className={styles.add}>
-                    <input type='file' id="image" onChange={(e) => setFile(e.target.files[0])} style={{display: "none"}}/>
+                    <input type='file' id="image" onChange={handleFileChange} style={{display: "none"}}/>
                     <button className={styles.addButton}>
                     <label htmlFor='image'>
 
